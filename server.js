@@ -5,7 +5,6 @@ import cors from "cors";
 const app = express();
 app.use(cors());
 
-// İstanbul Eczacı Odası API URL (Pendik için filtre uygularız)
 const apiURL = "https://www.istanbuleczaciodasi.org.tr/Eczane/NobetciEczane";
 
 app.get("/pendik", async (req, res) => {
@@ -22,6 +21,8 @@ app.get("/", (req, res) => {
     res.send("Pendik Nöbetçi Eczane API Çalışıyor!");
 });
 
-app.listen(10000, () => {
-    console.log("Server çalışıyor: Port 10000");
+// 🔧 Render için DOĞRU PORT kullanımı
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => {
+    console.log("Server çalışıyor: Port " + PORT);
 });
