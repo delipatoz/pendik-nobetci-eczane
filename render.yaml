@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: pendik-nobetci-puppeteer
+    env: node
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      PUPPETEER_CACHE_DIR: "/tmp"
+    plan: free
